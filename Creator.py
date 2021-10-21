@@ -13,18 +13,24 @@ parser = argparse.ArgumentParser()
 
 # Information arguments
 parser.add_argument('-v', '--version', action='store_true', help='Program version')
+
 parser.add_argument('-pa', '--print-args', action='store_true')
 
 # Optional Arguments
 parser.add_argument('-p', '--path', help='Directory \'path\'', required=True, type=str)
-#parser.add_argument('-os', '--operating-system' ,  choices=['Linux', 'Win', 'And', 'Mac'], help='Operating system', required=True)
+
+parser.add_argument('-DocN', '--document-name', default='doc', help='Document name', type=str)
+
+parser.add_argument('-dt', '--document-type', default='.txt', help='Type document', type=str)
 
 args = parser.parse_args()
 
 def Creation():
-    f = open(os.path.normpath(args.path) + '/newfile_by_creator.txt', 'w')
-    f.close()
-    print('File is create')
+    print('\nCreating...')
+    while True:
+        f = open(os.path.normpath(args.path) + '/' + args.document_name + str(random.randint(0, 100000)) + args.document_type, 'w')
+    
+        f.close()
 
 def IAC(): # informational argument conditions
     if args.version == True:
