@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 
 
 # Information arguments:
-parser.add_argument('-v', '--version', action='store_true', help='Program version')
+parser.add_argument('-a', '--about', action='store_true', help='Program version')
 
 parser.add_argument('-pa', '--print-args', action='store_true')
 
@@ -65,8 +65,11 @@ def Creation():
     print('\nCompleted')
 
 def IAC(): # informational argument conditions
-    if args.version == True:
-        print('Software version: ' + VERSION)
+    
+    if args.about == True:
+        print('\n\tSoftware version: ' + VERSION)
+        print('\tGitHub: https://github.com/TotaruSeika-pr')
+        print('\tTwitter: https://twitter.com/TotaruS\n')
     
     if args.print_args == True:
         print(args)
@@ -76,9 +79,11 @@ def main():
     IAC()
 
     try:
+
         Creation ()
+    
     except FileNotFoundError:
-        print('\nInvalid path specified!')
+       print('\nInvalid path specified!')
 
     except KeyboardInterrupt:
         print('\nCreation stopped')
