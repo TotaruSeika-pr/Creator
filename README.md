@@ -25,7 +25,7 @@ Required argument that takes a specific operating system value. In this version,
 
 `./Creator.py -p test -os Linux`
 
-##### If you run the utility on a **Linux** distribution and the path is correct, then the program will work
+##### If you run the utility on a **Linux** distribution and the path is correct, then the program will work. If you want to use this utility on an android device, then in this parameter, select Linux, since their file system is similar. And in general, Android and Linux are almost the same thing.
 
 ## -DocN || --document-name
 
