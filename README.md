@@ -47,3 +47,12 @@ Optional argument. Accepts text, which is a dotted file type. Attaches to the fi
 
 ##### Enter the types correctly in terms of both syntax and data storage. You can't enter a string into the table, can you?
 
+## -r || --range
+
+Optional argument. The arguments are two numbers, and the first must be greater than the second. The numbers represent the range of numbers for the ultimate file name generation. To avoid exclusion when the file name is repeated, such unique numbers are used.
+
+## Example:
+
+`./Creator.py -p test -os Linux --range 0 100000000`
+
+##### The larger the range you specify, the more files the program can create.
