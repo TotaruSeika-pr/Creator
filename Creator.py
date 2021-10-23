@@ -7,8 +7,6 @@ import shutil
 
 VERSION = '1.0.0.0'
 
-path = ''
-
 # ---------------------------------------------------------------------------
 
 parser = argparse.ArgumentParser()
