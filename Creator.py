@@ -77,8 +77,8 @@ def main():
 
     try:
         Creation ()
-    #except FileNotFoundError:
-       # print('\nInvalid path specified!')
+    except FileNotFoundError:
+        print('\nInvalid path specified!')
 
     except KeyboardInterrupt:
         print('\nCreation stopped')
