@@ -102,3 +102,5 @@ Thanks for using my utility! I hope you enjoy it. If you are active (leave revie
 
 - [Twitter](https://twitter.com/TotaruS)
 - [GitHub](https://github.com/TotaruSeika-pr)
+
+###### Where is the donate link? The point is, I think this is wrong. I can't ask for money for a crude project. Perhaps, if the project begins to gain recognition little by little, then I can understand that people really like the project. And in this case, you can get a small reward from those who want to help.
