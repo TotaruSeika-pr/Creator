@@ -15,8 +15,6 @@ parser = argparse.ArgumentParser()
 # Information arguments:
 parser.add_argument('-a', '--about', action='store_true', help='Program version')
 
-parser.add_argument('-pa', '--print-args', action='store_true')
-
 
 # Optional Arguments:
 parser.add_argument('-p', '--path', help='Directory path', required=True, type=str)
@@ -70,10 +68,6 @@ def IAC(): # informational argument conditions
         print('\n\tSoftware version: ' + VERSION)
         print('\tGitHub: https://github.com/TotaruSeika-pr')
         print('\tTwitter: https://twitter.com/TotaruS\n')
-    
-    if args.print_args == True:
-        print(args)
-
 
 def main():
     IAC()
