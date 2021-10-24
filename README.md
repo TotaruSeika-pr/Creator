@@ -69,3 +69,21 @@ $ ./Creator.py -p test -os Linux -cf copy_file.txt
 ```
 
 ##### In this case, the files will be created with the text *"I am created!"* The *copy_file.txt* file is located in the folder with the program itself.
+
+## -q || --quantity
+
+Optional argument. Takes one number. The number is the number of files to create. If all files are created, the job ends. If no argument is specified, it will create files indefinitely.
+
+`$ ./Creator.py -p test -os Linux -q 1000`
+
+##### In this case, the utility will create 1000 files and exit.
+
+## -t || --text `-t [TEXT]`
+
+Optional argument. Accepts text to be written to files.
+
+### Example:
+
+`$ ./Creator.py -p test -os Linux -t Thanks to Create for the job!`
+
+##### This function is useful if you need to write short text. If you want to write large texts, then write it to a file and use `-cf`
