@@ -94,7 +94,7 @@ Argument for getting information. Used to get information about the project and 
 
 ##### Unfortunately, the key does not work without required arguments. Therefore, we raise an error for the key to work :)
 
-`./Creator.py -p text -os Mac -a`
+`$ ./Creator.py -p text -os Mac -a`
 
 ### Author's comment:
 
