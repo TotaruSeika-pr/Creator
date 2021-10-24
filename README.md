@@ -87,3 +87,9 @@ Optional argument. Accepts text to be written to files.
 `$ ./Creator.py -p test -os Linux -t Thanks to Create for the job!`
 
 ##### This function is useful if you need to write short text. If you want to write large texts, then write it to a file and use `-cf`
+
+## -a || --about
+
+Argument for getting information. Used to get information about the project and its author.
+
+##### Unfortunately, the key does not work without required arguments. Therefore, we raise an error for the key to work :)
