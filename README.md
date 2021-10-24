@@ -22,7 +22,7 @@ Required argument that takes a specific operating system value. In this version,
 
 ### Example:
 
-`./Creator.py -p test -os Linux`
+`$ ./Creator.py -p test -os Linux`
 
 ##### If you run the utility on a **Linux** distribution and the path is correct, then the program will work. If you want to use this utility on an android device, then in this parameter, select Linux, since their file system is similar. And in general, Android and Linux are almost the same thing.
 
@@ -32,7 +32,7 @@ Optional argument. Accepts text, which is the new filename (not counting its num
 
 ### Example:
 
-`./Creator.py -p test -os Linux -DocN new_file`
+`$ ./Creator.py -p test -os Linux -DocN new_file`
 
 ##### Specify the name of the file, not its type!
 
@@ -42,7 +42,7 @@ Optional argument. Accepts text, which is a dotted file type. Attaches to the fi
 
 ### Example:
 
-`./Creator.py -p test -os Linux -DocT .py`
+`$ ./Creator.py -p test -os Linux -DocT .py`
 
 ##### Enter the types correctly in terms of both syntax and data storage. You can't enter a string into the table, can you?
 
@@ -50,8 +50,22 @@ Optional argument. Accepts text, which is a dotted file type. Attaches to the fi
 
 Optional argument. The arguments are two numbers, and the first must be greater than the second. The numbers represent the range of numbers for the ultimate file name generation. To avoid exclusion when the file name is repeated, such unique numbers are used.
 
-## Example:
+### Example:
 
-`./Creator.py -p test -os Linux --range 0 100000000`
+`$ ./Creator.py -p test -os Linux --range 0 100000000`
 
 ##### The larger the range you specify, the more files the program can create.
+
+## -cf || --copy-file `-cf [PATH]`
+
+Optional argument. Accepts the path to the file, the contents of which will be written to each file created.
+
+### Example:
+
+```
+$ cat copy_file.txt
+I am created!
+$ ./Creator.py -p test -os Linux -cf copy_file.txt
+```
+
+##### In this case, the files will be created with the text *"I am created!"* The *copy_file.txt* file is located in the folder with the program itself.
