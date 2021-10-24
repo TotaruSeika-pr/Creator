@@ -94,6 +94,8 @@ Argument for getting information. Used to get information about the project and 
 
 ##### Unfortunately, the key does not work without required arguments. Therefore, we raise an error for the key to work :)
 
+`./Creator.py -p text -os Mac -a`
+
 ### Author's comment:
 
 Thanks for using my utility! I hope you enjoy it. If you are active (leave reviews, put stars on the repository, tell others about it), then I will actively engage in this project! I have tons of ideas that I will add as you get active.
