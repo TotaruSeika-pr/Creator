@@ -13,25 +13,25 @@ parser = argparse.ArgumentParser()
 
 
 # Information arguments:
-parser.add_argument('-a', '--about', action='store_true', help='Program version')
+parser.add_argument('-a', '--about', action='store_true', help='About the program and author')
 
 
 # Optional Arguments:
-parser.add_argument('-p', '--path', help='Directory path', required=True, type=str)
+parser.add_argument('-p', '--path', help='Path of files created', required=True, type=str)
 
-parser.add_argument('-os', '--operating-system', required=True, choices=['Win', 'Linux'])
+parser.add_argument('-os', '--operating-system', required=True, choices=['Win', 'Linux'], help='Select the operating system in which the program will work')
 
-parser.add_argument('-DocN', '--document-name', default='doc', help='Document name', type=str)
+parser.add_argument('-DocN', '--document-name', default='doc', help='The name of the documents being created', type=str)
 
-parser.add_argument('-DocT', '--document-type', default='.txt', help='Type document', type=str)
+parser.add_argument('-DocT', '--document-type', default='.txt', help='Type of documents created', type=str)
 
 parser.add_argument('-r', '--range', nargs=2, help='[Beginning of range] [end of range]', default=[0, 1000000], type=int)
 
-parser.add_argument('-cf', '--copy-file', help='The path to the file', default='N')
+parser.add_argument('-cf', '--copy-file', help='The path to the contents of which will be copied', default='N')
 
 parser.add_argument('-q', '--quantity', default=-1, type=int, help='Number of files created')
 
-parser.add_argument('-t', '--text', default='', help='Text in documents', type=str)
+parser.add_argument('-t', '--text', default='', help='Text in the created files', type=str)
 
 args = parser.parse_args()
 
