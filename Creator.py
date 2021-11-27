@@ -6,7 +6,7 @@ import time
 import argparse
 import shutil
 
-VERSION = '1.0.1.0'
+VERSION = '1.0.1.0 UNSTABLE'
 
 
 def CreateAndGetArgs():
