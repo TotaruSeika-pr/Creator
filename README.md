@@ -1,4 +1,4 @@
-# Creator 1.0.0.0 / Documentation
+# Creator 1.0.1.0 / Documentation
 ###### *I apologize in advance for any possible incorrect translation. I ask you to interpret the text as accurately and clearly as possible.*
 
 
@@ -56,27 +56,49 @@ Optional argument. The arguments are two numbers, and the first must be greater 
 
 ##### The larger the range you specify, the more files the program can create.
 
-## -cf || --copy-file `-cf [PATH]`
+## -ctf || --copy-text-file `-ctf [PATH]`
 
-Optional argument. Accepts the path to the file, the contents of which will be written to each file created.
+Optional argument. Takes the path of the file, the text of which will be copied
 
 ### Example:
 
 ```
-$ cat copy_file.txt
-I am created!
-$ ./Creator.py -p test -os Linux -cf copy_file.txt
+$ ./Creator.py -p test -os Linux -cf copy_file.png
 ```
 
-##### In this case, the files will be created with the text *"I am created!"* The *copy_file.txt* file is located in the folder with the program itself.
+##### Make sure that the text in the file is adequate and appropriate for you.
+
+## -cf || --copy-file `-cf [PATH]`
+
+Optional argument. Accepts the path to the file to be copied.
+
+### Example:
+
+```
+$ ./Creator.py -p test -os Linux -cf copy_file.png
+```
+
+##### Note the `-ctf` and` -cf`. `-ctf` only copies the contents of the file when` -ctf` copies the file itself.
 
 ## -q || --quantity
 
 Optional argument. Takes one number. The number is the number of files to create. If all files are created, the job ends. If no argument is specified, it will create files indefinitely.
 
+
+
 `$ ./Creator.py -p test -os Linux -q 1000`
 
 ##### In this case, the utility will create 1000 files and exit.
+
+## -d || --delay `-d [FLOAT]`
+
+Optional argument. Accepts a floating point value. Delay between file creation.
+
+### Example:
+
+`$ ./Creator.py -p test -os Linux -d 2.5`
+
+##### In this case, the program creates one file every 2.5 seconds.
 
 ## -t || --text `-t [TEXT]`
 
