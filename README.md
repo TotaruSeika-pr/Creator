@@ -2,7 +2,7 @@
 ###### *I apologize in advance for any possible incorrect translation. I ask you to interpret the text as accurately and clearly as possible.*
 
 
-**Creator** - is a utility that allows you to check hard drives for writing and deleting data.
+**Creator** - Creator is a spammer program that creates a large number of files. It can be useful for checking long-term storage media for writing, storing, deleting data, as well as checking the security of the OS for spam attacks.
 
 The program receives keys, which we will now analyze
 
