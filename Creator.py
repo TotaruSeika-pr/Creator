@@ -6,7 +6,7 @@ import time
 import argparse
 import shutil
 
-VERSION = '1.0.1.0 UNSTABLE'
+VERSION = '1.0.1.0'
 
 
 def CreateAndGetArgs():
@@ -16,30 +16,35 @@ def CreateAndGetArgs():
 
 
     # Information arguments:
-    parser.add_argument('-a', '--about', action='store_true', help='Program version')
+    parser.add_argument('-a', '--about', action='store_true', help='Information about the program')
     parser.add_argument('-pa', '--print-args', action='store_true')
 
 
     # Optional Arguments:
-    parser.add_argument('-p', '--path', help='Directory path', required=True, type=str)
-    parser.add_argument('-os', '--operating-system', required=True, choices=['Win', 'Linux'])
-    parser.add_argument('-DocN', '--document-name', default='doc', help='Document name', type=str)
-    parser.add_argument('-DocT', '--document-type', default='.txt', help='Type document', type=str)
-    parser.add_argument('-r', '--range', nargs=2, help='[Beginning of range] [end of range]', default=[0, 1000000], type=int)
-    parser.add_argument('-ctf', '--copy-text-file', help='The path to the file (copies text)', default='N')
-    parser.add_argument('-cf', '--copy-file', help='The path file (copies file)', default='N')
+    parser.add_argument('-p', '--path', help='Path to create files', required=True, type=str)
+    parser.add_argument('-os', '--operating-system', required=True, choices=['Win', 'Linux'], help='Affects the separator between folders')
+    parser.add_argument('-DocN', '--document-name', default='doc', help='The name of the document to be created (not including the distinguished number)', type=str)
+    parser.add_argument('-DocT', '--document-type', default='.txt', help='The type of document being created', type=str)
+    parser.add_argument('-r', '--range', nargs=2, help='A certain distinctive number of documents created', default=[0, 1000000], type=int)
+    parser.add_argument('-ctf', '--copy-text-file', help='Accepts the path to the file, the text of which will be copied', default='N')
+    parser.add_argument('-cf', '--copy-file', help='Accepts the path to the file to be copied', default='N')
+    parser.add_argument('-d', '--delay', type=float, default=0.0, help='Delay between file creation')
     parser.add_argument('-q', '--quantity', default=-1, type=int, help='Number of files created')
-    parser.add_argument('-t', '--text', default='', help='Text in documents', type=str)
+    parser.add_argument('-t', '--text', default='', help='Text in generated documents', type=str)
 
     args = parser.parse_args()
 
 
 def PrintStats():
     DateEnd = time.time()
-    print('Files created: ' + str(NumbeFilesCreated))
-    ProgramWorked = float(DateEnd)-float(DateStart)
+    print('\nFiles created: ' + str(NumbeFilesCreated))
+    ProgramWorked = round(float(DateEnd)-float(DateStart), 3)
     print('Program worked: ' + str(ProgramWorked) + ' sec')
-    print('Average Crafting Speed: ' + str(int(float(NumbeFilesCreated)//float(ProgramWorked))) + '/sec')
+    if args.delay == 0.0:
+        print('Average Crafting Speed: ' + str(round(int(float(NumbeFilesCreated)/float(ProgramWorked)), 3)) + '/sec')
+
+    else:
+        print('Average Crafting Speed: ' + '1/' + str(args.delay) + ' sec')
 
 
 def Creation():
@@ -80,8 +85,9 @@ def Creation():
                     os.system(f'cp {args.copy_file} {new_file + file_type}')
 
         NumbeFilesCreated += 1              
-
         iterations_var -= 1
+
+        time.sleep(args.delay)
 
     print('\nCompleted')
 
