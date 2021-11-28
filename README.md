@@ -118,6 +118,12 @@ Argument for getting information. Used to get information about the project and 
 
 `$ ./Creator.py -p text -os Mac -a`
 
+## Version system:
+
+The program has the following version system: a.b.c.d. Each letter means its own degree of renewal:
+
+
+
 ### Author's comment:
 
 Thanks for using my utility! I hope you enjoy it. If you are active (leave reviews, put stars on the repository, tell others about it), then I will actively engage in this project! I have tons of ideas that I will add as you get active.
