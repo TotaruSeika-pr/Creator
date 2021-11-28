@@ -62,9 +62,7 @@ Optional argument. Takes the path of the file, the text of which will be copied
 
 ### Example:
 
-```
-$ ./Creator.py -p test -os Linux -cf copy_file.png
-```
+`$ ./Creator.py -p test -os Linux -cf copy_file.png`
 
 ##### Make sure that the text in the file is adequate and appropriate for you.
 
@@ -74,17 +72,15 @@ Optional argument. Accepts the path to the file to be copied.
 
 ### Example:
 
-```
-$ ./Creator.py -p test -os Linux -cf copy_file.png
-```
+`$ ./Creator.py -p test -os Linux -cf copy_file.png`
 
-##### Note the `-ctf` and` -cf`. `-ctf` only copies the contents of the file when` -ctf` copies the file itself.
+##### Note the `-ctf` and` -cf`. `-ctf` only copies the contents of the file when `-cf` copies the file itself.
 
 ## -q || --quantity
 
 Optional argument. Takes one number. The number is the number of files to create. If all files are created, the job ends. If no argument is specified, it will create files indefinitely.
 
-
+### Example:
 
 `$ ./Creator.py -p test -os Linux -q 1000`
 
