@@ -122,7 +122,10 @@ Argument for getting information. Used to get information about the project and 
 
 The program has the following version system: a.b.c.d. Each letter means its own degree of renewal:
 
-
+- **a**: responsible for large-scale program updates.
+- **b**: significant updates that strongly affect the operation of the program. Innovations can be complex in implementation functions, significant acceleration of the program.
+- **c**: updates affecting the operation of the program. Updates can include adding new functions, editing pins and visual elements of the program.
+- **d**: an update that does not affect the work with the program, but changes it internally (optimization, slight performance acceleration, minor fixes)
 
 ### Author's comment:
 
