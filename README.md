@@ -1,4 +1,4 @@
-# Creator 1.0.1.0 / Documentation
+# Creator 1.0.2.0 / Documentation
 ###### *I apologize in advance for any possible incorrect translation. I ask you to interpret the text as accurately and clearly as possible.*
 
 
@@ -102,9 +102,47 @@ Optional argument. Accepts text to be written to files.
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -t Thanks to Create for the job!`
+`$ ./Creator.py -p test -os Linux -t "Thanks to Create for the job!"`
 
 ##### This function is useful if you need to write short text. If you want to write large texts, then write it to a file and use `-cf`
+
+## -l || --logging `-l [1, 2, 3]`
+
+Optional argument. Affects writing to the generated log file. The argument has three different modes. Modes:
+
+1. A record of the arguments used in this session.
+2. Records the final statistics of the program's operation.
+3. Writes each created file.
+
+Each mode uses the past. That is, if you specify mode 2, then the arguments and statistics of the program in the session will be written to the file.
+
+### Example:
+
+`$ ./Creator.py -p test -os Linux -l 2`
+
+##### In this case, the arguments and final statistics of the session will be written to the file.
+
+## -m || --mode `-m [1, 2, 3]`
+
+Optional argument. Used to select the file creation mode. Modes:
+
+1. Creating files.
+2. Create folders.
+3. Creates documents and folders. (in random order)
+
+`$ ./Creator.py -p test -os Linux -m 3`
+
+##### In this case, folders and documents will be created in the designated "test" folder.
+
+## -tw || --time-work `-tw [FLOAT]`
+
+Optional argument. When passing a number, the program will run exactly that time. (Error in file creations +- 0.05)
+
+### Example:
+
+`> python Creator.py -p test -os Win -tw 86400`
+
+##### In this case, the program will run all day. (60 * 60 * 24)
 
 ## -a || --about
 
@@ -129,7 +167,6 @@ Thanks for using my utility! I hope you enjoy it. If you are active (leave revie
 
 #### I'm on social networks
 
-- [Twitter](https://twitter.com/TotaruS)
 - [GitHub](https://github.com/TotaruSeika-pr)
 - [Telegram Channel](https://t.me/TotaruSeikaDevOfficial)
 
