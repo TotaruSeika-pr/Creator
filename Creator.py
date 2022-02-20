@@ -6,7 +6,7 @@ import time
 import argparse
 import shutil
 
-VERSION = '1.0.1.0'
+VERSION = '1.0.2.0'
 
 
 def CreateAndGetArgs():
@@ -30,28 +30,80 @@ def CreateAndGetArgs():
     parser.add_argument('-cf', '--copy-file', help='Accepts the path to the file to be copied', default='N')
     parser.add_argument('-d', '--delay', type=float, default=0.0, help='Delay between file creation')
     parser.add_argument('-q', '--quantity', default=-1, type=int, help='Number of files created')
+    parser.add_argument('-l', '--logging', type=int, choices=[1, 2, 3], default= 0,  help='Logs the work of the program')
     parser.add_argument('-t', '--text', default='', help='Text in generated documents', type=str)
-
+    parser.add_argument('-m', '--mode', choices=[1, 2, 3], default=1, help='Selecting the program operation mode (1 - documents, 2 - folders, 3 - mixed)', type=int)
+    parser.add_argument('-tw', '--time-work', default=None, type=float, help='Specifies the program running time in seconds.')
+    
     args = parser.parse_args()
 
 
-def PrintStats():
+def GetStats():
     DateEnd = time.time()
-    print('\nFiles created: ' + str(NumbeFilesCreated))
+    Files_created = str(NumbeFilesCreated)
     ProgramWorked = round(float(DateEnd)-float(DateStart), 3)
-    print('Program worked: ' + str(ProgramWorked) + ' sec')
     if args.delay == 0.0:
-        print('Average Crafting Speed: ' + str(round(int(float(NumbeFilesCreated)/float(ProgramWorked)), 3)) + '/sec')
+        Average_Crafting_Speed = str(round(int(float(NumbeFilesCreated)/float(ProgramWorked)), 3)) + '/sec'
 
     else:
-        print('Average Crafting Speed: ' + '1/' + str(args.delay) + ' sec')
+        Average_Crafting_Speed = '1/' + str(args.delay) + ' sec'
+
+    return [Files_created, ProgramWorked, Average_Crafting_Speed]
+
+def PrintStats(values):
+    if log_file_write == False:
+        if args.logging > 1:
+            answer = GetStats()
+            log_file.write('\nFiles created: ' + str(answer[0]) + '\nProgram worked: ' + str(answer[1]) + ' sec\nAverage Crafting Speed: ' + str(answer[2]))
+            log_file.close()
+        
+    print('\nCreated: ' + str(values[0]))
+    print('Program worked: ' + str(values[1]) + ' sec')
+    print('Average Crafting Speed: ' + str(values[2]))
+
+def CreatingDocument():
+    global f
+
+    try:
+    
+        if args.copy_text_file == 'N' and args.copy_file == 'N':
+                f = open(new_file + args.document_type, 'w')
+                f.write(args.text)
+                f.close()
+        else:
+            if args.copy_text_file != 'N':
+                    
+                shutil.copy(os.path.normpath(args.copy_text_file), new_file + args.document_type)
+
+            elif args.copy_file != 'N':
+
+                file_type = os.path.splitext(args.copy_file)[1]
+                    
+                if args.operating_system == 'Win':
+                    os.system(f'copy {args.copy_file} {new_file + file_type}')
+
+                elif args.operating_system == 'Linux':
+                    os.system(f'cp {args.copy_file} {new_file + file_type}')
+    
+    except FileExistsError:
+        pass
+
+def CreatingFolders():
+
+    try:
+        os.mkdir(new_file)
+
+    except FileExistsError:
+        pass
+
 
 
 def Creation():
-    global iterations_var, DateStart, NumbeFilesCreated
+    global iterations_var, DateStart, NumbeFilesCreated, log_file, new_file, f, log_file_write
     iterations_var = args.quantity
     NumbeFilesCreated = 0
-    
+    log_file_write = False
+
     if args.operating_system == 'Win':
         separator = '\\'
     elif args.operating_system == 'Linux':
@@ -59,30 +111,35 @@ def Creation():
 
     print('\nCreated...')
 
+    if args.logging > 0:
+        log_file = open('log'+ str(time.time())+'.txt', 'w')
+        log_file.write('Arguments:' + str(args)+'\n')
+
     DateStart = time.time()
 
     while iterations_var != 0:
 
-        new_file = os.path.normpath(args.path) + separator + args.document_name + str(random.randint(args.range[0], args.range[1]))
+        file_name = args.document_name + str(random.randint(args.range[0], args.range[1]))
+        new_file = os.path.normpath(args.path) + separator + file_name
         
-        if args.copy_text_file == 'N' and args.copy_file == 'N':
-            f = open(new_file + args.document_type, 'w')
-            f.write(args.text)
-            f.close()
-        else:
-            if args.copy_text_file != 'N':
-                
-                shutil.copy(os.path.normpath(args.copy_text_file), new_file + args.document_type)
+        if args.mode == 1:
+            CreatingDocument()
+        elif args.mode == 2:
+            CreatingFolders()
+        elif args.mode == 3:
+            if random.randint(0, 1) == 0:
+                CreatingDocument()
+            else:
+                CreatingFolders()
 
-            elif args.copy_file != 'N':
+        if args.time_work != None:
+            if time.time()-DateStart >= args.time_work:
+                break
 
-                file_type = os.path.splitext(args.copy_file)[1]
-                
-                if args.operating_system == 'Win':
-                    os.system(f'copy {args.copy_file} {new_file + file_type}')
 
-                elif args.operating_system == 'Linux':
-                    os.system(f'cp {args.copy_file} {new_file + file_type}')
+        if args.logging == 3:
+            log_file.write('Created -> ' + file_name + '\n')
+
 
         NumbeFilesCreated += 1              
         iterations_var -= 1
@@ -91,7 +148,12 @@ def Creation():
 
     print('\nCompleted')
 
-    PrintStats()
+    if args.logging > 1:
+        answer = GetStats()
+        log_file.write('\nFiles created: ' + str(answer[0]) + '\nProgram worked: ' + str(answer[1]) + ' sec\nAverage Crafting Speed: ' + str(answer[2]))
+        log_file_write = True
+
+    PrintStats(GetStats())
 
 
 def IAC(): # informational argument conditions
@@ -117,6 +179,6 @@ def main():
        print('\nInvalid path specified!')
 
     except KeyboardInterrupt:
-        PrintStats()
+        PrintStats(GetStats())
 
 main()
