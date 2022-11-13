@@ -1,8 +1,8 @@
-# Creator 1.0.2.0 / Documentation
+# Creator 1.0.2.1 / Documentation
 ###### *I apologize in advance for any possible incorrect translation. I ask you to interpret the text as accurately and clearly as possible.*
 
 
-**Creator** - Creator is a spammer program that creates a large number of files. It can be useful for checking long-term storage media for writing, storing, deleting data, as well as checking the security of the OS for spam attacks.
+**Creator** - a program for replicating files and folders to test the system for the recording speed of electronic media and for security..
 
 The program receives keys, which we will now analyze
 
@@ -12,27 +12,18 @@ Required argument that takes the path to the folder where the files will be writ
 
 ### Example:
 
-`-p C:\projects\Creator\test_dir`
+`$ ./Creator.py -p C:\projects\Creator\test_dir`
 
 ##### The files are created in a folder located in the utility folder. Enter the folder path carefully. Otherwise, you can clog up the folders you need.
 
-## -os || --operating-system `-os [Linux, Win]`
-
-Required argument that takes a specific operating system value. In this version, these are: **"Win"** or **"Linux"**. Different separators (*"/" or "\\"*) are used for the OS. If you enter incorrectly, you will be asked to run the utility with the -h switch, which displays a list of available switches `./Creator.py -h`
-
-### Example:
-
-`$ ./Creator.py -p test -os Linux`
-
-##### If you run the utility on a **Linux** distribution and the path is correct, then the program will work. If you want to use this utility on an android device, then in this parameter, select Linux, since their file system is similar. And in general, Android and Linux are almost the same thing.
 
 ## -DocN || --document-name `-DocN [NAME]`
 
-Optional argument. Accepts text, which is the new filename (not counting its number). If not used, the file name will be **"doc"** + *number*
+Optional argument. Accepts text, which is the new filename (not counting its number). If not used, the file name will be **"doc"** + **"number"**
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -DocN new_file`
+`$ ./Creator.py -p test -DocN new_file`
 
 ##### Specify the name of the file, not its type!
 
@@ -42,7 +33,7 @@ Optional argument. Accepts text, which is a dotted file type. Attaches to the fi
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -DocT .py`
+`$ ./Creator.py -p test -DocT .py`
 
 ##### Enter the types correctly in terms of both syntax and data storage. You can't enter a string into the table, can you?
 
@@ -52,7 +43,7 @@ Optional argument. The arguments are two numbers, and the first must be greater 
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux --range 0 100000000`
+`$ ./Creator.py -p test --range 0 100000000`
 
 ##### The larger the range you specify, the more files the program can create.
 
@@ -62,7 +53,7 @@ Optional argument. Takes the path of the file, the text of which will be copied
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -cf copy_file.png`
+`$ ./Creator.py -p test -cf copy_file.png`
 
 ##### Make sure that the text in the file is adequate and appropriate for you.
 
@@ -72,7 +63,7 @@ Optional argument. Accepts the path to the file to be copied.
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -cf copy_file.png`
+`$ ./Creator.py -p test -cf copy_file.png`
 
 ##### Note the `-ctf` and` -cf`. `-ctf` only copies the contents of the file when `-cf` copies the file itself.
 
@@ -82,7 +73,7 @@ Optional argument. Takes one number. The number is the number of files to create
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -q 1000`
+`$ ./Creator.py -p test -q 1000`
 
 ##### In this case, the utility will create 1000 files and exit.
 
@@ -92,7 +83,7 @@ Optional argument. Accepts a floating point value. Delay between file creation.
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -d 2.5`
+`$ ./Creator.py -p test -d 2.5`
 
 ##### In this case, the program creates one file every 2.5 seconds.
 
@@ -102,7 +93,7 @@ Optional argument. Accepts text to be written to files.
 
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -t "Thanks to Create for the job!"`
+`$ ./Creator.py -p test -t "Thanks to Create for the job!"`
 
 ##### This function is useful if you need to write short text. If you want to write large texts, then write it to a file and use `-cf`
 
@@ -116,9 +107,11 @@ Optional argument. Affects writing to the generated log file. The argument has t
 
 Each mode uses the past. That is, if you specify mode 2, then the arguments and statistics of the program in the session will be written to the file.
 
+
+
 ### Example:
 
-`$ ./Creator.py -p test -os Linux -l 2`
+`$ ./Creator.py -p test -l 2`
 
 ##### In this case, the arguments and final statistics of the session will be written to the file.
 
@@ -130,7 +123,7 @@ Optional argument. Used to select the file creation mode. Modes:
 2. Create folders.
 3. Creates documents and folders. (in random order)
 
-`$ ./Creator.py -p test -os Linux -m 3`
+`$ ./Creator.py -p test -m 3`
 
 ##### In this case, folders and documents will be created in the designated "test" folder.
 
@@ -140,7 +133,7 @@ Optional argument. When passing a number, the program will run exactly that time
 
 ### Example:
 
-`> python Creator.py -p test -os Win -tw 86400`
+`> python Creator.py -p test -tw 86400`
 
 ##### In this case, the program will run all day. (60 * 60 * 24)
 
@@ -150,7 +143,7 @@ Argument for getting information. Used to get information about the project and 
 
 ##### Unfortunately, the key does not work without required arguments. Therefore, we raise an error for the key to work :)
 
-`$ ./Creator.py -p text -os Mac -a`
+`$ ./Creator.py -p text -a`
 
 ## Version system:
 
@@ -169,5 +162,6 @@ Thanks for using my utility! I hope you enjoy it. If you are active (leave revie
 
 - [GitHub](https://github.com/TotaruSeika-pr)
 - [Telegram Channel](https://t.me/TotaruSeikaDevOfficial)
+- [Reddit](https://www.reddit.com/user/Totaru_Seika/)
 
 ###### Where is the donate link? The point is, I think this is wrong. I can't ask for money for a crude project. Perhaps, if the project begins to gain recognition little by little, then I can understand that people really like the project. And in this case, you can get a small reward from those who want to help.
