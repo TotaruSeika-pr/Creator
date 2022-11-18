@@ -2,7 +2,7 @@
 ###### *I apologize in advance for any possible incorrect translation. I ask you to interpret the text as accurately and clearly as possible.*
 
 
-**Creator** - a program for replicating files and folders to test the system for the recording speed of electronic media and for security..
+**Creator** - a program for replicating files and folders to test the system for the recording speed of electronic media and for security.
 
 The program receives keys, which we will now analyze
 
