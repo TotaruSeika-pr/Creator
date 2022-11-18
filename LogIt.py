@@ -47,6 +47,3 @@ class LogIt:
         self.data['date'] = time.strftime(self.date_format, time.gmtime())
         with open(self.file, 'a') as f:
             f.write(self.text_format.format(**self.data)+'\n')
-
-
-# сделать кастомный формат даты

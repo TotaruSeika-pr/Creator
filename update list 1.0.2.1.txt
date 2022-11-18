@@ -1,0 +1,9 @@
+update list Creator 1.0.2.1:
+
++ The program has been rewritten for OOP:
+	+ arguments have been moved to a separate file and the args.py:Argument class
+	+ The program itself was moved to the Creator class in a file ClassCreator.py
++ Added Logger module for logging
++ The functionality is practically unchanged.
++ The mandatory -os argument has been removed, since the program determines the os itself.
++ Improved logging due to the developed logitech module
